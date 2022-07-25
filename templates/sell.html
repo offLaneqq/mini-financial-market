@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Продаж
+{% endblock %}
+
+{% block main %}
+  <h1>Продаж акцій</h1>
+  <form  action="/sell" method="post">
+        <div class="mb-3"><select name="symbol" class="select">
+            {% for av in avail %}
+              <option value="{{ av.symbol }}">{{ av.symbol }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="shares" placeholder="Кількість"></div>
+        <input type="submit" value="Продати" class="btn btn-primary">
+
+{% endblock %}

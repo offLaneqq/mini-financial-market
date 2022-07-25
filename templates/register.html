@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Реєстрація
+{% endblock %}
+
+{% block main %}
+    <h1>Реєстрація</h1>
+    <form method="post" action="/register">
+        <div class="mb-3"><input type="text" name="username" placeholder="Придумайте ім'я" autocomplete="off" class="form-control mx-auto w-auto"></div>
+        <div class="mb-3"><input type="password" name="password" placeholder="Придумайте пароль" class="form-control mx-auto w-auto"></div>
+        <div class="mb-3"><input type="password" name="confirmation" placeholder="Повторіть пароль" class="form-control mx-auto w-auto"></div>
+        <input type="submit" name="submit" value="Зареєструватись" class="btn btn-primary"></div>
+    </table>
+    </form>
+
+{% endblock %}

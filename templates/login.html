@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Вхід
+{% endblock %}
+
+{% block main %}
+    <h1>Вхід</h1>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Ім'я" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Пароль" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Увійти</button>
+    </form>
+{% endblock %}

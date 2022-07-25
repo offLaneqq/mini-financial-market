@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Головна сторінка
+{% endblock %}
+
+{% block main %}
+
+    {% if not avail %}
+    <h4>У вас немає акцій. Почність з <a href="./quote">пошуку</a> або <a href="./buy">купіть</a> пару акцій.</h4>
+    {% endif %}
+    {% if avail %}
+
+    <table class="table table-hover" id="table">
+        <tr>
+            <th>Компанія</th>
+            <th>Абревіатура</th>
+            <th>Кількість</th>
+            <th>Ціна за 1 акцію</th>
+            <th>Загальна ціна</th>
+        </tr>
+
+        {% for avail in avail %}
+        <tr>
+            <td>{{ avail.company }}</td>
+            <td>{{ avail.symbol }}</td>
+            <td>{{ avail.shares }}</td>
+            <td>{{ avail.alone | usd }}</td>
+            <td>${{ avail.total }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td><td></td><td></td><td><b>Загальна сума:</b></td><td><b>{{ t }}</b></td>
+        </tr>
+    </table>
+    {% endif %}
+
+    <blockquote class="text-center">
+        <h5>Доступні кошти: {{ cash }}</h5>
+        <h5>Загальний капітал: {{ grand_total }}</h5>
+    </blockquote>
+{% endblock %}

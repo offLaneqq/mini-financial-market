@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Покупка акцій
+{% endblock %}
+
+{% block main %}
+    <h1>Здійснення закупівлі акцій</h1>
+    <form action="/buy" method="POST">
+        <div class="mb-3"><input type="text" name="symbol" autofocus placeholder="Введіть ім'я компанії"></div>
+        <div class="mb-3"><input type="number" name="shares" placeholder="Кількість"></div>
+        <input type="submit" value="Купити" class="btn btn-primary">
+    </form>
+
+{% endblock %}

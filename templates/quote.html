@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Пошук акцій
+{% endblock %}
+
+{% block main %}
+<h1>Пошук акцій</h1>
+    <form method="POST" action="/quote">
+        <div class="mb-3"><input autocomplete="off" autofocus type="text" name="symbol" placeholder="Введіть символ"></div>
+        <input type="submit" value="Пошук" class="btn btn-primary">
+    </form>
+
+{% endblock %}

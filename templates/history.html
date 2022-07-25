@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Історія
+{% endblock %}
+
+{% block main %}
+        <table class="table table-hover">
+            <tr>
+                <th>Дії</th>
+                <th>Кількість</th>
+                <th>Абревіатура</th>
+                <th>Ціна за 1 шт.</th>
+                <th>Загалом</th>
+                <th>Дата</th>
+            </tr>
+            {% for av in avail %}
+            <tr>
+                <td>
+                    {% if av.action %}
+                        Покупка
+                    {% else %}
+                        Продаж
+                    {% endif %}
+                </td>
+                <td>{{ av.shares }}</td>
+                <td>{{ av.symbol }}</td>
+                <td>{{ av.alone | usd }}</td>
+                <td>${{ av.all_price }}</td>
+                <td>{{ av.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}

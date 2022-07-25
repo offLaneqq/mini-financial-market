@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ ava["symbol"] }}
+{% endblock %}
+
+{% block main %}
+
+    <table class="search">
+        <tr>
+            <th>Символ</th>
+            <th>Назва компанії</th>
+            <th>Ціна</th>
+        </tr>
+        <tr>
+            <td>{{ ava["symbol"] }}</td>
+            <td>{{ ava["name"] }}</td>
+            <td>{{ ava["price"] | usd }}</td>
+        </tr>
+    </table>
+
+{% endblock%}

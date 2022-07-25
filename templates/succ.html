@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Успіх!
+{% endblock %}
+
+{% block main %}
+
+    <h2>
+    Вітаю! Ви здійснили {{ action }}
+    {{ shares }}
+    {% if shares == "1" %} акції
+    {% else %} акцій
+    {{ name }}
+    {% endif %} за
+    {{ total }}
+    </h2>
+
+    <h2>Грошей залишилось: {{ funds }}</h2>
+
+{% endblock %}
