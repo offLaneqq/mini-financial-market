@@ -45,7 +45,32 @@ if not os.environ.get("API_KEY"):
 @app.route("/changepassword", methods=["GET", "POST"])
 @login_required
 def account():
-    pass    # дописати, як буде вільний час!
+    if request.method == "POST":
+
+        old_password = request.form.get("old_password")
+        new_password = request.form.get("new_password")
+        confirmation = request.form.get("confirmation")
+
+        hash = db.execute("SELECT * FROM users WHERE id=?", session["user_id"])
+
+        #print(check_password_hash(hash[0]["hash"], old_password))
+        if  check_password_hash(hash[0]["hash"], old_password) != True:
+            return apology("Old password invalid", 403)
+
+        if not old_password or not new_password or not confirmation:
+            return render_template("changepassword.html")
+
+        if new_password != confirmation:
+            return apology("Новий пароль не збігаються")
+
+        hash = generate_password_hash(confirmation)
+
+        db.execute("UPDATE users SET hash=? WHERE id=?", hash, session["user_id"])
+
+        return render_template("changepasswordsucc.html", success=1)
+
+    else:
+        return render_template("changepassword.html")
 
 
 @app.route("/")
