@@ -36,6 +36,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+# config.py це файл з однією змінною API_KEY=value, де value Ваш ключ, який починається з pk_
 from config import API_KEY
 os.environ["API_KEY"]=API_KEY
 # Make sure API key is set
